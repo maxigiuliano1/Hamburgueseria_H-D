@@ -32,6 +32,12 @@ p{
     color: #a84646;
 }
 
+.activo{
+    background-position: right center;
+    text-decoration: underline;
+    color: #a84646;
+}
+
 .navbar{
     background-color: #000000;
 }
@@ -92,6 +98,72 @@ span{
     transition: 0.5s;
 }
 
+.contenedorMenu{
+    border: 1px solid #000000;
+    border-radius: 0.7em;
+    margin: 1em 0;
+    padding: 1em;
+    overflow: hidden;
+}
+
+.contenedorMenu .info{
+    width: 75%;
+}
+
+.contenedorMenu .info h4{
+    color: #000000;
+    font-size: 1.5em;
+    font-weight: 500;
+    margin: 0 0 1em;
+    border-bottom: 1px solid #000000;
+    padding-bottom: 0.5em;
+}
+
+.contenedorMenu img{
+    border-radius: 0.8em;
+}
+
+.contenedorMenu:nth-child(even) img{
+    float: right;
+    margin: 0 0 0 1em;
+}
+
+.contenedorMenu:nth-child(even) .info{
+    float: left;
+}
+
+.contenedorMenu:nth-child(odd) img{
+    float: left;
+    margin: 0 1em 0 0;
+}
+
+.contenedorMenu:nth-child(odd) .info{
+    float: right;
+}
+
+.botonSobreImagen{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.botonMenu{
+    border-radius: 15px;
+    padding: 10px 25px 10px 25px;
+}
+
+.form-group{
+    border: 1px solid #000000;
+    border-radius: 0.7em;
+    margin: 1em 0;
+    padding: 1em;
+}
+
+label{
+    color: #000000;
+}
+
 .textoSobreImagen{
     position: absolute;
     top: 50%;
@@ -126,6 +198,13 @@ span{
   
 @media screen and (max-width:768px){
     .textoSobreImagen{
+        position: absolute;
+        top: 35%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .botonSobreImagen{
         position: absolute;
         top: 35%;
         left: 50%;
