@@ -1,0 +1,230 @@
+body{
+    background-image: linear-gradient(to right, #272727c4 0%, #333333 50%);
+}
+h2{
+  color: rgba(255, 0, 0, 0.582);
+  letter-spacing: 5px;
+  text-shadow: -1px -1px 0px gray,
+    3px 3px 0px black,
+    6px 6px 0px gray;
+}
+
+h3{
+    color: rgba(255, 0, 0, 0.582);
+}
+p{
+    color: white;
+}
+.btn-grad {
+    margin: 10px;
+    padding: 5px 20px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 100% auto;
+    color: white;            
+    border-radius: 5px;
+}
+
+.btn-grad:hover {
+    background-position: right center;
+    text-decoration: underline;
+    color: #a84646;
+}
+
+.activo{
+    background-position: right center;
+    text-decoration: underline;
+    color: #a84646;
+}
+
+.navbar{
+    background-color: #000000;
+}
+
+.mb-3, .my-3{
+    margin-bottom: -1rem !important;
+    padding-bottom: 20px;
+}
+
+.icon{
+    font-size: xx-large;
+    font-family:'Courier New', Courier, monospace;
+    color: white;
+    text-decoration: none;
+    transition: 0.5s;
+    margin-left: 10px;
+}
+
+.icon:hover{
+    color: rgba(148, 148, 148, 0.507);
+}
+
+.contenedor{
+    display: grid;
+    gap: 10px;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+  }
+  
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.6);
+}
+  
+.container {
+    padding: 2px 16px;
+}
+
+.nota{
+    background-color: #0000008c;
+    font-size: xx-large;
+}
+
+span{
+    color: #b92c2c;
+}
+
+.redes-sociales{
+    margin-left: 5px;
+    font-size: xx-large;
+    color: white;
+    text-decoration: none;
+}
+.redes-sociales :hover{
+    color: #a84646;
+    transition: 0.5s;
+}
+
+.contenedorMenu{
+    border: 1px solid #000000;
+    border-radius: 0.7em;
+    margin: 1em 0;
+    padding: 1em;
+    overflow: hidden;
+}
+
+.contenedorMenu .info{
+    width: 75%;
+}
+
+.contenedorMenu .info h4{
+    color: #000000;
+    font-size: 1.5em;
+    font-weight: 500;
+    margin: 0 0 1em;
+    border-bottom: 1px solid #000000;
+    padding-bottom: 0.5em;
+}
+
+.contenedorMenu img{
+    border-radius: 0.8em;
+}
+
+.contenedorMenu:nth-child(even) img{
+    float: right;
+    margin: 0 0 0 1em;
+}
+
+.contenedorMenu:nth-child(even) .info{
+    float: left;
+}
+
+.contenedorMenu:nth-child(odd) img{
+    float: left;
+    margin: 0 1em 0 0;
+}
+
+.contenedorMenu:nth-child(odd) .info{
+    float: right;
+}
+
+.botonSobreImagen{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.botonMenu{
+    border-radius: 15px;
+    padding: 10px 25px 10px 25px;
+}
+
+.form-group{
+    border: 1px solid #000000;
+    border-radius: 0.7em;
+    margin: 1em 0;
+    padding: 1em;
+}
+
+.contacto{
+    width: 100%;
+}
+
+.contacto input{
+    width: 100%;
+    padding: 5px 0 5px 5px;
+    border-radius: 10px;
+}
+
+.contacto textarea{
+    width: 100%;
+    padding: 5px 0 5px 5px;
+    border-radius: 10px;
+    resize: none;
+}
+
+label{
+    color: #000000;
+}
+
+.textoSobreImagen{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.textoAnimado{
+    display: block;
+    font-family:'Courier New', Courier, monospace;
+    white-space: nowrap;
+    border-right: 4px solid;
+    width: 40ch;
+    font-size: xx-large;
+    background-color: rgba(0,0,0,0.3);
+
+    animation: typing 2s steps(40), blink .5s infinite step-end alternate;
+    overflow: hidden;
+}
+
+@keyframes typing {
+    from{
+        width: 0 
+    }    
+}
+
+@keyframes blink {
+    50%{
+        border-color: transparent;
+    }
+}
+  
+@media screen and (max-width:768px){
+    .textoSobreImagen{
+        position: absolute;
+        top: 35%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .botonSobreImagen{
+        position: absolute;
+        top: 35%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
