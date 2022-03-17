@@ -1,0 +1,13 @@
+<h1>{{title}}</h1>
+{{#if know}}
+    <p>Hi {{username}} <a href="/logout">Logout</a></p>
+{{/if}}
+
+{{#unless know}}
+    <p>I don't know you</p>
+    <form action="/login" method="post">
+        <label>Username</label>
+        <input type="text" name="username" placeholder="username"><br>
+        <button>login</button>
+    </form>
+{{/unless}}
