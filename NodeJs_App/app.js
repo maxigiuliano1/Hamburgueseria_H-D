@@ -4,6 +4,8 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+require('dotenv').config();
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var session = require('express-session');
@@ -62,6 +64,12 @@ app.use('/servicios', serviciosRouter);
 app.use('/contacto', contactoRouter);
 app.use('/galeria', galeriaRouter);
 app.use('/admin/login', loginRouter);
+
+var pool = require('./models/bd');
+
+pool.query('select * from empleados').then(function(resultado){
+  console.log(resultado)
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
