@@ -90,14 +90,14 @@ app.use('/admin/novedades', secured, novedadesRouter);
 
 var pool = require('./models/bd');
 
-
+/*
 pool.query('select * from usuarios').then(function(resultado){
   console.log(resultado)
 });
 
 pool.query('select * from novedades order by id desc').then(function(resultado){
   console.log(resultado)
-});
+});*/
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
