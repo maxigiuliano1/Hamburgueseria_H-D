@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<body>
+    <!--Navegador-->
+    <nav class="navbar justify-content-end mb-3">
+        <a class="nav-link mr-auto icon" href="#">B&D</a>
+        <a class="nav-link btn-grad" href="nosotros">Nosotros</a>
+        <a class="nav-link btn-grad" href="servicios">Servicios</a>
+        <a class="nav-link btn-grad" href="galeria">Menu</a>
+        <a class="nav-link btn-grad activo" href="novedades">Novedades</a>
+    </nav>
+    <br>
+    <div class="container">
+        <div class="row">
+            <p class="text-end">Hola {{usuario}}!! <a class="btn btn-danger"
+                href="/admin/login">Cerrar Sesion</a></p>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-7">
+                <h4>Listado de novedades</h4>
+            </div>
+            <div class="col-5 text-end">
+                <a href="/admin/novedades/agregar" class="btn btn-success"><i class="fa fa-plus"></i>Nuevo</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <table class="table table-dark">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Titulo</th>
+                            <th scope="col">SubTitulo</th>
+                            <th scope="col">Texto</th>
+                            <th scope="col">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each novedades}}
+                        <tr>
+                            <th scope="row">{{id}}</th>
+                            <td>{{titulo}}</td>
+                            <td>{{subtitulo}}</td>
+                            <td>{{cuerpo}}</td>
+                            <td scope="text-center">
+                                <a class="btn btn-warning" title="Editar" href="/admin/novedades/editar">
+                                    <i class="fa">Editar</i>
+                                </a>
+                                <a class="btn btn-danger" title="Eliminar" href="/admin/novedades/eliminar">
+                                    <i class="fa">Eliminar</i>
+                                </a>
+                            </td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

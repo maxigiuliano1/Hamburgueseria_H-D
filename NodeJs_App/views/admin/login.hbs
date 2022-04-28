@@ -1,13 +1,25 @@
-<h1>{{title}}</h1>
-{{#if know}}
-    <p>Hi {{username}} <a href="/logout">Logout</a></p>
-{{/if}}
-
-{{#unless know}}
-    <p>I don't know you</p>
-    <form action="/login" method="post">
-        <label>Username</label>
-        <input type="text" name="username" placeholder="username"><br>
-        <button>login</button>
-    </form>
-{{/unless}}
+<!DOCTYPE html>
+<body>
+    <!--Navegador-->
+    <nav class="navbar justify-content-center mb-3">
+        <a class="nav-link mr-auto icon" href="login">B&D</a>
+    </nav>
+    <br>
+    {{#if error}}
+        <p>Usuario o clave incorrectos</p>
+    {{/if}}
+    <div class="justify-content-center container login">
+        <form class="form-group" method="post" action="/admin/login">
+            <div class="form-group">
+                <label for="exampleInputUser">Usuario</label>
+                <input type="text" name="usuario" class="form-control" aria-describedby="userHelp">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" name="password" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-danger">Ingresar</button>
+        </form>
+    </div>
+</body>
+</html>

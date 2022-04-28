@@ -15,6 +15,7 @@ var serviciosRouter = require('./routes/servicios');
 var contactoRouter = require('./routes/contacto');
 var galeriaRouter = require('./routes/galeria');
 var loginRouter = require('./routes/admin/login');
+var novedadesRouter = require('./routes/admin/novedades');
 
 var app = express();
 
@@ -85,14 +86,18 @@ app.use('/servicios', serviciosRouter);
 app.use('/contacto', contactoRouter);
 app.use('/galeria', galeriaRouter);
 app.use('/admin/login', loginRouter);
-//app.use('/admin/novedades', secured, novedadesRouter);
+app.use('/admin/novedades', secured, novedadesRouter);
 
 var pool = require('./models/bd');
 
-/*
+
 pool.query('select * from usuarios').then(function(resultado){
   console.log(resultado)
-});*/
+});
+
+pool.query('select * from novedades order by id desc').then(function(resultado){
+  console.log(resultado)
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -4,13 +4,13 @@ var usuariosModal = require('./../../models/usuariosModel')
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('admin/login', { title: 'Welcome to the login' });
+  res.render('admin/login', {title: 'Login'});
 });
 
 router.get('/logout', function(req,res,next){
   req.session.destroy();
   res.render('admin/login', {
-    layout: 'admin/layout'
+    layout: 'layout'
   })
 })
 
@@ -22,12 +22,12 @@ router.post('/', async (req,res,next) =>{
     var data = await usuariosModal.getUserByUsernameAndPassword(usuario,password);
 
     if (data!= undefined) {
-      req.session.id_usario = data.id;
+      req.session.id_usuario = data.id;
       req.session.nombre = data.usuario;
       res.redirect('/admin/novedades');
     }else{
       res.render('admin/login', {
-        layout: 'admin/layout',
+        layout: 'layout',
         error: true
       });
     }
