@@ -6,7 +6,7 @@ var logger = require('morgan');
 
 require('dotenv').config();
 var session = require('express-session');
-
+var fileUpload = require('express-fileupload');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var session = require('express-session');
@@ -16,6 +16,8 @@ var contactoRouter = require('./routes/contacto');
 var galeriaRouter = require('./routes/galeria');
 var loginRouter = require('./routes/admin/login');
 var novedadesRouter = require('./routes/admin/novedades');
+var apiRouter = require('./routes/api');
+var cors = require('cors');
 
 var app = express();
 
@@ -38,6 +40,11 @@ secured = async (req, res, next)=>{
     console.log(error);
   }
 }
+
+app.use(fileUpload({
+  useTempFiles: true,
+  tempFileDir: '/tmp/'
+}));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -87,6 +94,7 @@ app.use('/contacto', contactoRouter);
 app.use('/galeria', galeriaRouter);
 app.use('/admin/login', loginRouter);
 app.use('/admin/novedades', secured, novedadesRouter);
+app.use('/api', cors(), apiRouter);
 
 var pool = require('./models/bd');
 
