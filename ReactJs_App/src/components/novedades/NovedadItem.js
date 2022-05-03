@@ -1,16 +1,20 @@
 import React from "react";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import '../../styles/Main.css';
 
 const NovedadItem = (props) => {
-    const {title, subTitle, body, image} = props
+    const { title, subTitle, body, image } = props
 
     return (
-        <div className='card'>
-            <img src={image}/>
-            <h3>{title}</h3>
-            <h4>{subTitle}</h4>
-            <div dangerouslySetInnerHTML={{__html: body}}/>
-            <hr/>
+
+        <div className="contenedorMenu">
+        <img src={image} width="250"/>
+        <div className="info">
+            <h3><b>{title}</b></h3>
+            <h4><b>{subTitle}</b></h4>
+            <p dangerouslySetInnerHTML={{__html: body}}/>
         </div>
+    </div>
     );
 }
 

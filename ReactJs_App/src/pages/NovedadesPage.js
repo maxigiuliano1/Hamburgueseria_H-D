@@ -26,7 +26,7 @@ const NovedadesPage = (props) => {
                 <div className="d-flex flex-column justify-content-center">
                     <h2 className="d-flex justify-content-center"><b>NOVEDADES</b></h2>
                 </div>
-                <section className='d-flex justify-content-between contenedor'>
+                <section className='container d-flex flex-column justify-content-center'>
                     {loading ? (
                         <p>Cargando..</p>
                     ): (
