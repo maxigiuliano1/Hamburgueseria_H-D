@@ -101,7 +101,7 @@ app.use('/admin/novedades', secured, novedadesRouter);
 //app.use('/admin/servicios', secured, servicioRouter);
 app.use('/admin/productosDestacados', secured, productoDestacadoRouter);
 app.use('/admin/testimonios', secured, testimoniosRouter);
-//app.use('/admin/meno', secured, menuRouter);
+//app.use('/admin/menu', secured, menuRouter);
 app.use('/api', cors(), apiRouter);
 
 var pool = require('./models/bd');
