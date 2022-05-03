@@ -7,9 +7,8 @@
         <a class="nav-link btn-grad" href="nosotros">Nosotros</a>
         <a class="nav-link btn-grad" href="servicios">Servicios</a>
         <a class="nav-link btn-grad" href="galeria">Menu</a>
-        <a class="nav-link btn-grad activo" href="novedades">Novedades</a>
-        <a class="nav-link btn-grad" href="testimonios">Testimonios</a>
-        <a class="nav-link btn-grad" href="productosDestacados">Productos Destacados</a>
+        <a class="nav-link btn-grad" href="novedades">Novedades</a>
+        <a class="nav-link btn-grad activo" href="testimonios">Testimonios</a>
     </nav>
     <br>
     <div class="container">
@@ -20,10 +19,10 @@
         <br>
         <div class="row">
             <div class="col-7">
-                <h4>Listado de novedades</h4>
+                <h4>Listado de testimonios</h4>
             </div>
             <div class="col-5 text-end">
-                <a href="/admin/novedades/agregar" class="btn btn-success"><i class="fa fa-plus"></i>Nuevo</a>
+                <a href="/admin/testimonios/agregarTestimonio" class="btn btn-success"><i class="fa fa-plus"></i>Nuevo</a>
             </div>
         </div>
         <div class="row">
@@ -32,26 +31,22 @@
                     <thead>
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">Titulo</th>
-                            <th scope="col">SubTitulo</th>
-                            <th scope="col">Texto</th>
+                            <th scope="col">Mensaje</th>
                             <th scope="col">Imagen</th>
                             <th scope="col">Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {{#each novedades}}
+                        {{#each testimonios}}
                         <tr>
                             <th scope="row">{{id}}</th>
-                            <td>{{titulo}}</td>
-                            <td>{{subtitulo}}</td>
-                            <td>{{cuerpo}}</td>
+                            <td>{{mensaje}}</td>
                             <td>{{{imagen}}}</td>
                             <td scope="text-center">
-                                <a class="btn btn-warning" title="Editar" href="/admin/novedades/editar/{{id}}">
+                                <a class="btn btn-warning" title="Editar" href="/admin/testimonios/editarTestimonio/{{id}}">
                                     <i class="fa">Editar</i>
                                 </a>
-                                <a class="btn btn-danger" title="Eliminar" href="/admin/novedades/eliminar/{{id}}">
+                                <a class="btn btn-danger" title="Eliminar" href="/admin/testimonios/eliminarTestimonio/{{id}}">
                                     <i class="fa">Eliminar</i>
                                 </a>
                             </td>

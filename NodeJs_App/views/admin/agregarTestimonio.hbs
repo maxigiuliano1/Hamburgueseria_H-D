@@ -1,0 +1,23 @@
+<nav class="navbar justify-content-end mb-3">
+    <a class="nav-link mr-auto icon" href="#">B&D</a>
+    <a class="nav-link btn-grad activo" href="/admin/testimonios">Testimonios</a>
+</nav>
+<div class="container" style="margin:100px auto">
+    <div class="row">
+        <div class="col-6 offset-3">
+            <h4>Agregar un nuevo testimonio</h4>
+            <form action="/admin/testimonios/agregarTestimonio" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <textarea type="text" class="form-control" placeholder="Mensaje" name="mensaje"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Imagen: <input type="file" name="imagen" id="imagen"></label>
+                </div>
+                <button type="submit" class="btn btn-primary">Guardar</button>
+            </form>
+        </div>
+    </div>
+    {{#if error}}
+        <p>{{message}}</p>
+    {{/if}}
+</div>

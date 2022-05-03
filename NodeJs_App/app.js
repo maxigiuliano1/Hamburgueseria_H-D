@@ -16,6 +16,10 @@ var contactoRouter = require('./routes/contacto');
 var galeriaRouter = require('./routes/galeria');
 var loginRouter = require('./routes/admin/login');
 var novedadesRouter = require('./routes/admin/novedades');
+//var servicioRouter = require('./routes/admin/servicios');
+var productoDestacadoRouter = require('./routes/admin/productosDestacados');
+var testimoniosRouter = require('./routes/admin/testimonios');
+//var menuRouter = require('./routes/admin/menu');
 var apiRouter = require('./routes/api');
 var cors = require('cors');
 
@@ -94,6 +98,10 @@ app.use('/contacto', contactoRouter);
 app.use('/galeria', galeriaRouter);
 app.use('/admin/login', loginRouter);
 app.use('/admin/novedades', secured, novedadesRouter);
+//app.use('/admin/servicios', secured, servicioRouter);
+app.use('/admin/productosDestacados', secured, productoDestacadoRouter);
+app.use('/admin/testimonios', secured, testimoniosRouter);
+//app.use('/admin/meno', secured, menuRouter);
 app.use('/api', cors(), apiRouter);
 
 var pool = require('./models/bd');
