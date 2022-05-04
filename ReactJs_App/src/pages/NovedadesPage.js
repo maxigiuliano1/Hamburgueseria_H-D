@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/Main.css';
-import '../components/novedades/NovedadItem'
 import NovedadItem from '../components/novedades/NovedadItem';
 const NovedadesPage = (props) => {
     const [loading, setLoading] = useState(false);
