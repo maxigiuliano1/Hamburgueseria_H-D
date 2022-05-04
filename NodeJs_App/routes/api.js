@@ -3,6 +3,7 @@ var router = express.Router();
 var novedadesModel = require('./../models/novedadesModel');
 var testimoniosModel = require('./../models/testimoniosModel');
 var productosDestacadosModel = require('./../models/productosDestacadosModel');
+var serviciosModel = require('./../models/serviciosModel');
 var cloudinary = require('cloudinary').v2;
 
 router.get('/novedades', async function(req,res,next){
@@ -71,6 +72,17 @@ router.get('/productosDestacados', async function(req,res,next){
         }
     });
     res.json(productos);
+});
+
+router.get('/servicios', async function(req,res,next){
+    var servicios = await serviciosModel.getServicios();
+
+    servicios = servicios.map(servicios => {
+        return{
+            ...servicios
+        }
+    });
+    res.json(servicios);
 });
 
 module.exports = router;

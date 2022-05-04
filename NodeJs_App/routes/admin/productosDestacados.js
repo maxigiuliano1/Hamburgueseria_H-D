@@ -29,7 +29,7 @@ router.get('/', async function(req,res,next){
     })
 
     res.render('admin/productosDestacados', {
-        title: 'Testimonios',
+        title: 'Productos Destacados',
         layout: 'layout',
         usuario: req.session.nombre,
         productosDestacados
