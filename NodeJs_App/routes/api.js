@@ -58,11 +58,7 @@ router.get('/productosDestacados', async function(req,res,next){
 
     productos = productos.map(productos => {
         if (productos.img_id) {
-            const imagen = cloudinary.url(productos.img_id, {
-                width: 300,
-                height: 300,
-                crop: 'pad'
-            });
+            const imagen = cloudinary.url(productos.img_id);
             return{
                 ...productos,
                 imagen
