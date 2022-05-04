@@ -1,0 +1,36 @@
+<nav class="navbar justify-content-end mb-3">
+    <a class="nav-link mr-auto icon" href="#">B&D</a>
+    <a class="nav-link btn-grad" href="/admin/menu">Volver</a>
+</nav>
+<div class="container" style="margin:100px auto">
+    <div class="row">
+        <div class="col-6 offset-3">
+            <h4>Editar el menu</h4>
+            <form action="/admin/menu/editarMenu" method="post" enctype="multipart/form-data">
+            <input type="hidden" value="{{menu.id}}" name="id">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Titulo" value="{{menu.titulo}}" name="titulo">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Precio" name="precio" value="{{menu.precio}}">
+                </div>
+                <div class="form-group">
+                    <textarea type="text" class="form-control" placeholder="Descripcion" name="descripcion">{{menu.descripcion}}</textarea>
+                </div>
+                <div class="form-group">
+                    <p>
+                        <label>Imagen: <input type="file" name="imagen"></label>
+                    </p>
+                    <p>
+                        <label><input type="checkbox" name="img_delete" id="img_delete" value="1">Eliminar imagen actual?</label>
+                        <input type="hidden" name="img_original" value="{{{menu.img_id}}}">
+                    </p>
+                </div>
+                <button type="submit" class="btn btn-primary">Editar</button>
+            </form>
+        </div>
+    </div>
+    {{#if error}}
+        <p>{{message}}</p>
+    {{/if}}
+</div>
