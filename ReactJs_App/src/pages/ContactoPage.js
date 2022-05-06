@@ -66,7 +66,7 @@ const ContactoPage = (props) => {
                         <label>Email:</label><br/>
                         <input type="email" placeholder="Email" name='email' value={formData.email} onChange={handleChange}/>
                         <br/><br/>
-                        <textarea rows={5} name='mensaje' value={formData.mensaje}></textarea>
+                        <textarea rows={5} name='mensaje' placeholder='Mensaje' value={formData.mensaje} onChange={handleChange}></textarea>
                         <br/>
                         <br/>
                         {sending ? <p>Enviando...</p> : null}
