@@ -5,6 +5,8 @@ var testimoniosModel = require('./../models/testimoniosModel');
 var productosDestacadosModel = require('./../models/productosDestacadosModel');
 var serviciosModel = require('./../models/serviciosModel');
 var menuModel = require('./../models/menuModel');
+var nosotrosModel = require('./../models/nosotrosModel');
+var nodemailer = require('nodemailer');
 var cloudinary = require('cloudinary').v2;
 
 router.get('/novedades', async function(req,res,next){
@@ -104,6 +106,52 @@ router.get('/menu', async function(req,res,next){
         }
     });
     res.json(menu);
+});
+
+router.get('/nosotros', async function(req,res,next){
+    var nosotros = await nosotrosModel.getNosotros();
+
+    nosotros = nosotros.map(nosotros => {
+        if (nosotros.img_id) {
+            const imagen = cloudinary.url(nosotros.img_id);
+            return{
+                ...nosotros,
+                imagen
+            }
+        } else{
+            return{
+                ...nosotros,
+                imagen: ''
+            }
+        }
+    });
+    res.json(nosotros);
+});
+
+router.post('/contacto', async (req,res)=>{
+    const mail = {
+        to: 'maxigiuliano18@gmail.com',
+        subject: 'Contacto Web',
+        html: `${req.body.nombre} se contacto a traves de la web por el asunto: ${req.body.asunto}
+        <br> y quiere mas informacion a este correo: ${req.body.email}
+        <br> Ademas, hizo el siguiente comentario: ${req.body.mensaje} <br>`
+    }
+
+    const transport = nodemailer.createTransport({
+        host: process.env.SMTP_HOST,
+        port: process.env.SMTP_PORT,
+        auth: {
+            user: process.env.SMTP_USER,
+            pass: process.env.SMTP_PASS
+        }
+    });
+
+    await transport.sendMail(mail);
+
+    res.status(201).json({
+        error: false,
+        message: 'Mensaje enviado'
+    });
 });
 
 module.exports = router;

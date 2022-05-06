@@ -14,6 +14,7 @@ var servicioRouter = require('./routes/admin/servicios');
 var productoDestacadoRouter = require('./routes/admin/productosDestacados');
 var testimoniosRouter = require('./routes/admin/testimonios');
 var menuRouter = require('./routes/admin/menu');
+var nosotrosRouter = require('./routes/admin/nosotros');
 var apiRouter = require('./routes/api');
 var cors = require('cors');
 
@@ -88,6 +89,7 @@ app.use('/admin/servicios', secured, servicioRouter);
 app.use('/admin/productosDestacados', secured, productoDestacadoRouter);
 app.use('/admin/testimonios', secured, testimoniosRouter);
 app.use('/admin/menu', secured, menuRouter);
+app.use('/admin/nosotros', secured, nosotrosRouter);
 app.use('/api', cors(), apiRouter);
 
 var pool = require('./models/bd');
