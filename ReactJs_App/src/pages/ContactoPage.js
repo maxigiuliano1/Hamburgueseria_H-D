@@ -1,7 +1,39 @@
-import React from 'react'
+import React, {useState} from 'react'
+import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/Main.css';
 const ContactoPage = (props) => {
+    const initialForm = {
+        nombre: '',
+        asunto: '',
+        email: '',
+        mensaje: ''
+    }
+
+    const [sending, setSending] = useState(false);
+    const [msg, setMsg] = useState('');
+    const [formData, setFormData] = useState(initialForm);
+
+    const handleChange = e => {
+        const {name, value} = e.target;
+        setFormData(oldData => ({
+            ...oldData,
+            [name]: value
+        }));
+    }
+
+    const handleSubmit = async e => {
+        e.preventDefault();
+        setMsg('');
+        setSending(true);
+        const response = await axios.post('http://localhost:3000/api/contacto', formData);
+        setSending(false);
+        setMsg(response.data.message);
+        if (response.data.error === false) {
+            setFormData(initialForm);
+        }
+    } 
+
     return (
         <main>
             <div>
@@ -24,19 +56,21 @@ const ContactoPage = (props) => {
                 </div>
 
                 <div className="container d-flex justify-content-center">
-                    <form method="" action="" className="form-group contacto">
+                    <form method="" action="" className="form-group contacto" onSubmit={handleSubmit}>
                         <label>Nombre y Apellido:</label><br/>
-                        <input type="text" placeholder="Nombre y Apellido"/>
+                        <input type="text" placeholder="Nombre y Apellido" name='nombre' value={formData.nombre} onChange={handleChange}/>
                         <br/>
                         <label>Asunto:</label><br/>
-                        <input type="text" placeholder="Asunto"/>
+                        <input type="text" placeholder="Asunto" name='asunto' value={formData.asunto} onChange={handleChange}/>
                         <br/>
                         <label>Email:</label><br/>
-                        <input type="email" placeholder="Email"/>
+                        <input type="email" placeholder="Email" name='email' value={formData.email} onChange={handleChange}/>
                         <br/><br/>
-                        <textarea rows="5"></textarea>
+                        <textarea rows={5} name='mensaje' value={formData.mensaje}></textarea>
                         <br/>
                         <br/>
+                        {sending ? <p>Enviando...</p> : null}
+                        {msg ? <p>{msg}</p> : null}
                         <input className="btn btn-danger container" type="submit" value="Enviar"/>
                     </form>
                 </div>
