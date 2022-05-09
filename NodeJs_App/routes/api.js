@@ -39,8 +39,8 @@ router.get('/testimonios', async function(req,res,next){
     testimonios = testimonios.map(testimonios => {
         if (testimonios.img_id) {
             const imagen = cloudinary.url(testimonios.img_id, {
-                width: 100,
-                height: 100,
+                width: 250,
+                height: 250,
                 crop: 'pad'
             });
             return{
