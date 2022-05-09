@@ -8,7 +8,7 @@
     {{#if error}}
         <p>Usuario o clave incorrectos</p>
     {{/if}}
-    <div class="justify-content-center container login">
+    <div class="d-flex justify-content-center">
         <form class="form-group" method="post" action="/admin/login">
             <div class="form-group">
                 <label for="exampleInputUser">Usuario</label>
@@ -18,7 +18,9 @@
                 <label for="exampleInputPassword1">Password</label>
                 <input type="password" name="password" class="form-control">
             </div>
-            <button type="submit" class="btn btn-danger">Ingresar</button>
+            <div class="d-flex justify-content-center">
+                <button type="submit" class="btn btn-danger">Ingresar</button>
+            </div>
         </form>
     </div>
 </body>
