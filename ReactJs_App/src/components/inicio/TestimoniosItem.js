@@ -7,7 +7,7 @@ const TestimoniosItem = (props) => {
 
     return (
         <div className="media contenedorMenu">
-            <img src={image} className="mr-3"/>
+            <img src={image} className="mr-3" alt="..."/>
             <div className="media-body info">
                 <p>{message}</p>
             </div>
