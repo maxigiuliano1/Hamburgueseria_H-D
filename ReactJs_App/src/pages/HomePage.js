@@ -38,7 +38,7 @@ const HomePage = (props) => {
                 </div>
             </div>
             <h2 className="d-flex justify-content-center"><b>NUESTROS PRODUCTOS DESTACADOS</b></h2>
-            <div className="d-flex justify-content-between contenedor">
+            <div className="d-flex justify-content-between container grid gap-2">
                 {loading ? (
                     <p>Cargando..</p>
                 ): (
