@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/Main.css';
@@ -10,7 +10,7 @@ const HomePage = (props) => {
     const [productos, setProductos] = useState([]);
     const [testimonios, setTestimonios] = useState([]);
 
-    useEffect(()=> {
+    useEffect(() => {
         const cargarProductos = async () => {
             setLoading(true);
             const response = await axios.get('http://localhost:3000/api/productosDestacados');
@@ -20,7 +20,7 @@ const HomePage = (props) => {
         cargarProductos();
     }, []);
 
-    useEffect(()=> {
+    useEffect(() => {
         const cargarTestimonios = async () => {
             setLoading(true);
             const response = await axios.get('http://localhost:3000/api/testimonios');
@@ -42,26 +42,32 @@ const HomePage = (props) => {
             <div className="d-flex justify-content-between container grid gap-2">
                 {loading ? (
                     <p>Cargando..</p>
-                ): (
-                    productos.map(item => <ProductosDestacadosItem title={item.titulo} 
-                    description={item.descripcion} image={item.imagen}/>)
+                ) : (
+                    productos.map(item => <ProductosDestacadosItem title={item.titulo}
+                        description={item.descripcion} image={item.imagen} />)
                 )}
             </div>
-            <br/>
+            <br />
             <h2 className="d-flex justify-content-center"><b>NUESTROS TESTIMONIOS</b></h2>
-            <div style={{display:'flex', justifyContent:'center', marginTop:50}}>
-                <div style={{width: '50%', display: 'flex', flexDirection:'column'}}>
+            <div style={{ display: 'flex', justifyContent: 'center', marginTop: 50 }}>
+                <div style={{
+                    width: '50%', display: 'flex', flexDirection: 'column', border: '1px solid #000000',
+                    borderRadius: '0.7em',
+                    margin: '1em 0',
+                    padding: '3em',
+                    overflow: 'hidden'
+                }}>
                     <Slider>
                         {loading ? (
                             <p>Cargando..</p>
-                        ): (
-                            testimonios.map(item => <TestimoniosItem message={item.mensaje} 
-                            image={item.imagen}/>)
+                        ) : (
+                            testimonios.map(item => <TestimoniosItem message={item.mensaje}
+                                image={item.imagen} />)
                         )}
                     </Slider>
                 </div>
             </div>
-            <br/>
+            <br />
         </main>
     );
 }
