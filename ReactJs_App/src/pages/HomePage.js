@@ -50,7 +50,7 @@ const HomePage = (props) => {
             <br/>
             <h2 className="d-flex justify-content-center"><b>NUESTROS TESTIMONIOS</b></h2>
             <div style={{display:'flex', justifyContent:'center', marginTop:50}}>
-                <div style={{width: '50%', display: 'flex', flexDirection:'column' }}>
+                <div style={{width: '50%', display: 'flex', flexDirection:'column'}}>
                     <Slider>
                         {loading ? (
                             <p>Cargando..</p>

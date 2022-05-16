@@ -9,8 +9,9 @@ const TestimoniosItem = (props) => {
     const { message, image } = props
 
     return (
+        <div>
             <div style={{display: 'flex', justifyContent: 'center'}}>
-                <div style={{width: '50%', display: 'flex', alignItems: 'center', flexDirection: 'column', textAlign: 'center'}}>
+                <div style={{width: '50%', display: 'flex', alignItems: 'center', flexDirection: 'row', textAlign: 'center'}}>
                         <Avatar 
                             imgProps={{style: {borderRadius: '50%'}}}
                             src={image} 
@@ -21,9 +22,10 @@ const TestimoniosItem = (props) => {
                                 padding: 7
                             }}
                         />
-                        <p style={{marginTop: 25}}>{message}</p>
+                        <p style={{marginLeft: 25}}>{message}</p>
                 </div>
             </div>
+        </div>
     );
 }
 
