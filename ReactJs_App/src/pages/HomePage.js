@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/Main.css';
 import ProductosDestacadosItem from '../components/inicio/ProductosDestacadosItem';
 import TestimoniosItem from '../components/inicio/TestimoniosItem';
+import Slider from 'react-slick';
 const HomePage = (props) => {
     const [loading, setLoading] = useState(false);
     const [productos, setProductos] = useState([]);
@@ -48,14 +49,19 @@ const HomePage = (props) => {
             </div>
             <br/>
             <h2 className="d-flex justify-content-center"><b>NUESTROS TESTIMONIOS</b></h2>
-            <div className="d-flex flex-column justify-content-start container">
-                {loading ? (
-                    <p>Cargando..</p>
-                ): (
-                    testimonios.map(item => <TestimoniosItem message={item.mensaje} 
-                    image={item.imagen}/>)
-                )}
+            <div style={{display:'flex', justifyContent:'center', marginTop:50}}>
+                <div style={{width: '50%', display: 'flex', flexDirection:'column' }}>
+                    <Slider>
+                        {loading ? (
+                            <p>Cargando..</p>
+                        ): (
+                            testimonios.map(item => <TestimoniosItem message={item.mensaje} 
+                            image={item.imagen}/>)
+                        )}
+                    </Slider>
+                </div>
             </div>
+            <br/>
         </main>
     );
 }
